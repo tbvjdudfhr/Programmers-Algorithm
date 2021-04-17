@@ -2,7 +2,12 @@ package sort.hindex
 
 class Solution {
     fun solution(citations: IntArray): Int {
-        var answer = 0
+        val answer = citations.size
+        citations.sortedArrayDescending()
+            .mapIndexed { index, i ->
+                if (i <= index)
+                    return index
+            }
         return answer
     }
 }
