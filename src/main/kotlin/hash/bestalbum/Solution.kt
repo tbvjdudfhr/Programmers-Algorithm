@@ -1,4 +1,4 @@
-package hash.bestAlbum
+package hash.bestalbum
 
 class Solution {
     fun solution(genres: Array<String>, plays: Array<Int>): IntArray {
