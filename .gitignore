@@ -28,3 +28,19 @@ gradlew
 gradlew.bat
 
 settings.gradle.kts
+
+src/main/kotlin/test/test1/README.md
+
+src/main/kotlin/test/test1/Solution.kt
+
+src/main/kotlin/test/test2/README.md
+
+src/main/kotlin/test/test2/Solution.kt
+
+src/main/kotlin/test/test3/README.md
+
+src/main/kotlin/test/test3/Solution.kt
+
+src/main/kotlin/test/test4/README.md
+
+src/main/kotlin/test/test4/Solution.kt
