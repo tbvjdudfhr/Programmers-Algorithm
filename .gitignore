@@ -28,3 +28,7 @@ gradlew
 gradlew.bat
 
 settings.gradle.kts
+
+# Ignore Gradle build output directory
+build
+/src/main/kotlin/test/
