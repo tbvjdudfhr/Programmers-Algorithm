@@ -32,3 +32,19 @@ settings.gradle.kts
 # Ignore Gradle build output directory
 build
 /src/main/kotlin/test/
+
+src/main/kotlin/test2/test1/README.md
+
+src/main/kotlin/test2/test1/Solution.kt
+
+src/main/kotlin/test2/test2/README.md
+
+src/main/kotlin/test2/test2/Solution.kt
+
+src/main/kotlin/test2/test2/Solution2.java
+
+src/test/kotlin/test2/test1/SolutionTest.kt
+
+src/test/kotlin/test2/test2/Solution2Test.java
+
+src/test/kotlin/test2/test2/SolutionTest.kt
