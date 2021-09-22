@@ -1,20 +1,14 @@
-package inflearn._8_1;
+package inflearn._8_2;
 
 import java.util.Scanner;
 
 public class Main {
-    static String answer = "NO";
-    static int n, total = 0;
-    static boolean flag = false;
+    static int n, maxWeight = 0, weight = Integer.MIN_VALUE;
 
     public static void DFS(int L, int sum, int[] arr) {
-        if (flag) return;
-        if (sum > total / 2) return;
+        if (sum > maxWeight) return;
         if (L == n) {
-            if (total - sum == sum) {
-                answer = "YES";
-                flag = true;
-            }
+            weight = Math.max(weight, sum);
         } else {
             DFS(L + 1, sum + arr[L], arr);
             DFS(L + 1, sum, arr);
@@ -23,15 +17,15 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner kb = new Scanner(System.in);
+        maxWeight = kb.nextInt();
         n = kb.nextInt();
         int[] ints = new int[n];
         for (int i = 0; i < n; i++) {
             ints[i] = kb.nextInt();
-            total += ints[i];
         }
         DFS(0, 0, ints);
 
-        System.out.println(answer);
+        System.out.println(weight);
 
         return;
     }
