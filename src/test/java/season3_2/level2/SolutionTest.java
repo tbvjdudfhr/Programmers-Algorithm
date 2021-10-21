@@ -1,13 +1,13 @@
 package season3_2.level2;
 
-import org.assertj.core.api.Assertions;
-import org.junit.jupiter.params.ParameterizedTest;
+import custom.CustomParameterizedTest;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class SolutionTest {
     Solution sol = new Solution();
@@ -28,7 +28,8 @@ class SolutionTest {
         );
     }
 
-    @ParameterizedTest
+    @DisplayName("n^2 배열 자르기")
+    @CustomParameterizedTest
     @MethodSource("args")
     void solution(int n, int left, int right, int[] result) {
         assertThat(sol.solution(n, left, right)).isEqualTo(result);
