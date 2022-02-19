@@ -1,18 +1,12 @@
 package inflearn._1_1;
 
-import java.util.Locale;
-
 class Solution {
     public int solution(String str, char t) {
-        int answer = 0;
+        String upperCaseStr = str.toUpperCase();
+        char upperCaseT = Character.toUpperCase(t);
 
-        str = str.toUpperCase(Locale.ROOT);
-        t = Character.toUpperCase(t);
-
-        for (char c : str.toCharArray()) {
-            if(c == t) answer++;
-        }
-
-        return answer;
+        return (int) upperCaseStr.chars().
+                filter(value -> (char) value == upperCaseT)
+                .count();
     }
 }
