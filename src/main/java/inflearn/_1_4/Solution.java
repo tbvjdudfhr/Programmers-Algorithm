@@ -1,16 +1,12 @@
 package inflearn._1_4;
 
-import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Solution {
-    public ArrayList<String> solution(int n, String[] str) {
-        ArrayList<String> answer = new ArrayList<>();
-
-        for (String x : str) {
-            String tmp = new StringBuilder(x).reverse().toString();
-            answer.add(tmp);
-        }
-
-        return answer;
+    public List<String> solution(List<String> strings) {
+        return strings.stream()
+                .map(value -> new StringBuilder(value).reverse().toString())
+                .collect(Collectors.toList());
     }
 }
