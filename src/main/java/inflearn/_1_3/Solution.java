@@ -1,12 +1,14 @@
 package inflearn._1_3;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 class Solution {
-    public String solution(String[] str) {
-        String answer = "";
-        for (String x : str) {
+    public String solution(String text) {
+        String[] strings = text.split(" ");
 
-        }
-
-        return answer;
+        return Arrays.stream(strings)
+                .max(Comparator.comparingInt(String::length))
+                .get();
     }
 }
