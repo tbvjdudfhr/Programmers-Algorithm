@@ -1,12 +1,20 @@
 package inflearn._1_8;
 
 public class Solution {
-    public String solution(String str) {
-        String answer = "NO";
-        str = str.replaceAll("[^a-zA-Z]", "");
-        String rStr = new StringBuilder(str).reverse().toString();
-        if(str.equalsIgnoreCase(rStr)) answer = "YES";
 
-        return answer;
+    private static final String YES = "YES";
+    private static final String NO = "NO";
+    private static final String REGEX = "[^a-zA-Z]";
+    private static final String REPLACEMENT = "";
+
+    public String solution(String text) {
+        text = text.replaceAll(REGEX, REPLACEMENT);
+        String reverseText = new StringBuilder(text).reverse().toString();
+
+        if(text.equalsIgnoreCase(reverseText)) {
+            return YES;
+        }
+
+        return NO;
     }
 }
