@@ -1,14 +1,13 @@
 package inflearn._1_9;
 
-public class Solution {
-    public int solution(String str) {
-        int answer = 0;
-        String tmp = "";
-        for(char x : str.toCharArray()) {
-            if(Character.isDigit(x)) tmp += x;
-        }
+import java.util.stream.Collectors;
 
-        answer = Integer.parseInt(tmp);
-        return answer;
+public class Solution {
+    public int solution(String text) {
+
+        return Integer.parseInt(text.chars()
+                .filter(value -> Character.isDigit(value))
+                .mapToObj(value -> String.valueOf((char) value))
+                .collect(Collectors.joining()));
     }
 }

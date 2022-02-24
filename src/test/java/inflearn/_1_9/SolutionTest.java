@@ -1,4 +1,4 @@
-package inflearn._1_8;
+package inflearn._1_9;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -13,21 +13,21 @@ class SolutionTest {
     private static Stream<Arguments> args() {
         return Stream.of(
                 Arguments.of(
-                        "found7, time: study; Yduts; emit, 7Dnuof",
-                        "YES"
+                        "g0en2T0s8eSoft",
+                        208
                 ),
                 Arguments.of(
-                        "found7, time: sttdy; Yduts; emit, 7Dnuof",
-                        "NO"
+                        "g0en1T0s4eSoft",
+                        104
                 )
         );
     }
 
-    @DisplayName("팰린드롬 문자열이면 YES 아니면 NO 테스트")
+    @DisplayName("문자와 숫자가 섞여있는 문자열에서 숫자만 추출하여 그 순서대로 자연수 테스트")
     @ParameterizedTest
     @MethodSource("args")
-    void 유효한_팰린드롬(String text, String result) {
-        final inflearn._1_8.Solution solution = new inflearn._1_8.Solution();
+    void 숫자만_추출(String text, int result) {
+        final inflearn._1_9.Solution solution = new inflearn._1_9.Solution();
 
         assertThat(solution.solution(text)).isEqualTo(result);
     }
