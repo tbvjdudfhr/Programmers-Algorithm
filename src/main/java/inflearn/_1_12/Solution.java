@@ -1,13 +1,20 @@
 package inflearn._1_12;
 
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 public class Solution {
-    public String solution(int x, String str) {
-        String answer = "";
-        for(int i = 0; i < str.length(); i+=7) {
-            String subStr = str.substring(i, i+7);
-            int tmp = Integer.parseInt(subStr.replaceAll("#", "1").replaceAll("\\*", "0"), 2);
-            answer += (char) tmp;
-        }
-        return answer;
+    private static final int SECRET_LENGTH = 7;
+
+    public String solution(int count, String str) {
+        return IntStream.range(0, count)
+                .mapToObj(index -> str.substring(index * SECRET_LENGTH, index * SECRET_LENGTH + SECRET_LENGTH))
+                .map(it -> (char) stringToInt(it))
+                .map(it -> it.toString())
+                .collect(Collectors.joining());
+    }
+
+    private int stringToInt(String it) {
+        return Integer.parseInt(it.replaceAll("#", "1").replaceAll("\\*", "0"), 2);
     }
 }
