@@ -1,17 +1,15 @@
 package inflearn._2_1;
 
 import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Solution {
     public String solution(int[] ints) {
-        String answer = "";
-        for (int i = 0; i < ints.length; i++) {
-            if(i == 0) answer += ints[i];
-            else {
-                if(ints[i-1] < ints[i]) answer += " " + ints[i];
-            }
-        }
-        return answer;
+        return IntStream.range(0, ints.length)
+                .filter(index -> index == 0 || ints[index] > ints[index - 1])
+                .mapToObj(index -> Integer.toString(ints[index]))
+                .collect(Collectors.joining(" "));
     }
 
     public static void main(String[] args) {
