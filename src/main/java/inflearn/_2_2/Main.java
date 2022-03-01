@@ -1,26 +1,25 @@
 package inflearn._2_2;
 
 
-
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 public class Main {
+    int cnt = 1;
+    int max = 0;
     public String solution(int[] ints) {
-        int cnt  = 0;
-        int max = 0;
-        for (int i = 0; i < ints.length; i++) {
-            if(i == 0)  {
-                cnt++;
-                max = ints[i];
-            }
-            else {
-                if(max < ints[i])  {
-                    cnt++;
-                    max = ints[i];
-                }
-            }
-        }
+        max = ints[0];
+        IntStream.range(1, ints.length)
+                .forEach(index -> getCount(ints, index));
+
         return String.valueOf(cnt);
+    }
+
+    private void getCount(int[] ints, int i) {
+        if (max < ints[i]) {
+            cnt++;
+            max = ints[i];
+        }
     }
 
     public static void main(String[] args) {
