@@ -11,7 +11,7 @@ public class Solution {
         return;
     }
 
-    private static int soluton(int n) {
+    public static int soluton(int n) {
         int answer = 0;
         int[] arr = new int[n + 1];
         for (int i = 0; i < arr.length; i++) {
@@ -25,8 +25,8 @@ public class Solution {
             }
         }
 
-        for(int x : arr) {
-            if(x != 0)  answer++;
+        for (int x : arr) {
+            if (x != 0) answer++;
         }
         return answer;
     }
