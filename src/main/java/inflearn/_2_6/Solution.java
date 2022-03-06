@@ -8,11 +8,16 @@ public class Solution {
         int input = kb.nextInt();
         for (int i = 0; i < input; i++) {
             String s = kb.next();
-            StringBuilder sb = new StringBuilder(s);
-            int n = Integer.parseInt(sb.reverse().toString());
-            if(soluton(n)) System.out.print(n + " ");
+            int n = reverseStringToInt(s);
+            if (soluton(n)) System.out.print(n + " ");
         }
         return;
+    }
+
+    public static int reverseStringToInt(String s) {
+        StringBuilder sb = new StringBuilder(s);
+        int n = Integer.parseInt(sb.reverse().toString());
+        return n;
     }
 
     private static boolean soluton(int n) {
@@ -28,8 +33,7 @@ public class Solution {
                 arr[j] = 0;
             }
         }
-
-        if(arr[n] != 0) answer = true;
+        if (arr[n] != 0) answer = true;
 
         return answer;
     }
