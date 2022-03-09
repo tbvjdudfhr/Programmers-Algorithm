@@ -19,13 +19,13 @@ public class Solution {
         return;
     }
 
-    private static int soluton(int[][] arr) {
+    public static int soluton(int[][] arr) {
         int answer = 0;
 
         ArrayList<Integer> list = new ArrayList<>();
 
         for (int i = 0; i < arr.length; i++) {
-            int row =0, column = 0;
+            int row = 0, column = 0;
             for (int j = 0; j < arr.length; j++) {
                 row += arr[i][j];
                 column += arr[j][i];
@@ -37,7 +37,7 @@ public class Solution {
         int xy = 0, yx = 0;
         for (int i = 0; i < arr.length; i++) {
             xy += arr[i][i];
-            yx += arr[arr.length -1 - i][arr.length -1 - i];
+            yx += arr[arr.length - 1 - i][arr.length - 1 - i];
         }
         list.add(xy);
         list.add(yx);
