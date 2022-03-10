@@ -9,7 +9,7 @@ public class Solution {
         int[][] arr = new int[input][input];
         for (int i = 0; i < input; i++) {
             for (int j = 0; j < input; j++) {
-                if (i == 0 || j == 0 || i == input -1 || j == input - 1) arr[i][j] = 0;
+                if (i == 0 || j == 0 || i == input - 1 || j == input - 1) arr[i][j] = 0;
                 else {
                     int x = kb.nextInt();
                     arr[i][j] = x;
@@ -17,14 +17,13 @@ public class Solution {
             }
         }
         System.out.print(soluton(arr));
-        return;
     }
 
-    private static int soluton(int[][] arr) {
+    public static int soluton(int[][] arr) {
         int answer = 0;
-        int temp = arr.length;
-        for (int i = 1; i < arr.length - 1; i++) {
-            for (int j = 1; j < arr.length - 1; j++) {
+        int length = arr.length;
+        for (int i = 1; i < length - 1; i++) {
+            for (int j = 1; j < length - 1; j++) {
                 if (arr[i][j] > arr[i - 1][j] && arr[i][j] > arr[i + 1][j] && arr[i][j] > arr[i][j - 1] && arr[i][j] > arr[i][j + 1])
                     answer++;
             }
