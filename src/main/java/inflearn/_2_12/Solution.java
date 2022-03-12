@@ -5,33 +5,35 @@ import java.util.Scanner;
 public class Solution {
     public static void main(String[] args) {
         Scanner kb = new Scanner(System.in);
-        int input1 = kb.nextInt();
-        int input2 = kb.nextInt();
-        int[][] arr = new int[input2][input1];
-        for (int i = 0; i < input2; i++) {
-            for (int j = 0; j < input1; j++) {
+        int numberStudents = kb.nextInt();
+        int schoolClass = kb.nextInt();
+        int[][] arr = new int[schoolClass][numberStudents];
+        for (int i = 0; i < schoolClass; i++) {
+            for (int j = 0; j < numberStudents; j++) {
                 int x = kb.nextInt();
                 arr[i][j] = x;
             }
         }
-        System.out.print(soluton(input2, input1, arr));
+        System.out.print(soluton(arr));
         return;
     }
 
-    private static int soluton(int a, int b, int[][] arr) {
+    public static int soluton(int[][] arr) {
         int answer = 0;
-        for (int i = 1; i <= b; i++) {
-            for (int j = 1; j <= b; j++) {
+        int rowCount = arr.length;
+        int columnCount = arr[0].length;
+        for (int i = 1; i <= columnCount; i++) {
+            for (int j = 1; j <= columnCount; j++) {
                 int cnt = 0;
-                for (int k = 0; k < a; k++) {
+                for (int k = 0; k < rowCount; k++) {
                     int pi = 0, pj = 0;
-                    for (int l = 0; l < b; l++) {
-                        if(arr[k][l] == i) pi = l;
-                        if(arr[k][l] == j) pj = l;
+                    for (int l = 0; l < columnCount; l++) {
+                        if (arr[k][l] == i) pi = l;
+                        if (arr[k][l] == j) pj = l;
                     }
-                    if(pi < pj) cnt++;
+                    if (pi < pj) cnt++;
                 }
-                if (cnt == a) {
+                if (cnt == rowCount) {
                     answer++;
                 }
             }
