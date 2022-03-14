@@ -18,22 +18,24 @@ public class Main {
             arr2[i] = kb.nextInt();
         }
 
-        for (Integer x : solution(n, m, arr, arr2)) {
+        for (Integer x : solution(arr, arr2)) {
             System.out.print(x + " ");
         }
 
         return;
     }
 
-    private static ArrayList<Integer> solution(int n, int m, int[] arr, int[] arr2) {
+    public static ArrayList<Integer> solution(int[] arr, int[] arr2) {
         ArrayList<Integer> list = new ArrayList<>();
         Arrays.sort(arr);
         Arrays.sort(arr2);
         int pi = 0, pj = 0;
-        while (pi < n && pj < m) {
-            if (arr[pi] > arr2[pj]) pj++;
-            else if (arr[pi] < arr2[pj]) pi++;
-            else {
+        while (pi < arr.length && pj < arr2.length) {
+            if (arr[pi] > arr2[pj]) {
+                pj++;
+            } else if (arr[pi] < arr2[pj]) {
+                pi++;
+            } else {
                 list.add(arr[pi]);
                 pi++;
                 pj++;
