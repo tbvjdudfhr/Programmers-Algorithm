@@ -12,12 +12,12 @@ public class Main {
             arr[i] = kb.nextInt();
         }
 
-        System.out.print(solution(n, m, arr));
+        System.out.print(solution(m, arr));
 
         return;
     }
 
-    private static int solution(int n, int m, int[] arr) {
+    public static int solution(int m, int[] arr) {
         int sum = 0;
         for (int i = 0; i < m; i++) {
             sum += arr[i];
