@@ -12,7 +12,7 @@ public class Main {
         return;
     }
 
-    private static int solution(int n) {
+    public static int solution(int n) {
         int i = 2, cnt = 0;
         int tmp = n - 1;
         while (tmp > 0) {
@@ -20,6 +20,7 @@ public class Main {
             if(tmp % i == 0) cnt++;
             i++;
         }
+
         return cnt;
     }
 }
