@@ -16,8 +16,8 @@ public class Main {
         return;
     }
 
-    private static int solution(int n, int m, int[] arr) {
-        int cnt = 0, lt = 0, len = 0, max = Integer.MIN_VALUE;
+    public static int solution(int n, int m, int[] arr) {
+        int cnt = 0, lt = 0, len, max = Integer.MIN_VALUE;
         for (int rt = 0; rt < n; rt++) {
             if (arr[rt] == 0) {
                 cnt++;
@@ -29,8 +29,9 @@ public class Main {
                 }
             }
             len = rt - lt;
-            if(max < len) max = len;
+            if (max < len) max = len;
         }
+
         return max;
     }
 }
