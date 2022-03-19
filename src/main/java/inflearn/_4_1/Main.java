@@ -13,11 +13,13 @@ public class Main {
         return;
     }
 
-    private static char solution(int n, String line) {
+    public static char solution(int n, String line) {
         HashMap<Character, Integer> map = new HashMap<>();
         for (char x : line.toCharArray()) {
             map.put(x, map.getOrDefault(x, 0) + 1);
         }
+
+        l
 
         int max = Integer.MIN_VALUE;
         Character answer = 'a';
