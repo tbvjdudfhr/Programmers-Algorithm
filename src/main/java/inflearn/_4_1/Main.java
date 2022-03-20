@@ -19,8 +19,6 @@ public class Main {
             map.put(x, map.getOrDefault(x, 0) + 1);
         }
 
-        l
-
         int max = Integer.MIN_VALUE;
         Character answer = 'a';
         for (char x : map.keySet()) {

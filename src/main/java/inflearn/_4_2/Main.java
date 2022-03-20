@@ -13,19 +13,23 @@ public class Main {
         return;
     }
 
-    private static String solution(String line, String line2) {
-        String answer = "NO";
+    public static String solution(String line, String line2) {
         HashMap<Character, Integer> map = new HashMap<>();
         HashMap<Character, Integer> map2 = new HashMap<>();
+
+        getMap(line, map);
+        getMap(line2, map2);
+
+        if (map.equals(map2)) {
+            return "YES";
+        }
+
+        return "No";
+    }
+
+    private static void getMap(String line, HashMap<Character, Integer> map) {
         for (char x : line.toCharArray()) {
             map.put(x, map.getOrDefault(x, 0) + 1);
         }
-        for (char x : line2.toCharArray()) {
-            map2.put(x, map2.getOrDefault(x, 0) + 1);
-        }
-
-        if(map.equals(map2)) answer = "YES";
-
-        return answer;
     }
 }
