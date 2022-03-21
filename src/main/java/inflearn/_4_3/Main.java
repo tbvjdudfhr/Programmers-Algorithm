@@ -20,7 +20,7 @@ public class Main {
         return;
     }
 
-    private static ArrayList<Integer> solution(int n, int m, int[] ints) {
+    public static ArrayList<Integer> solution(int n, int m, int[] ints) {
         ArrayList<Integer> list = new ArrayList<>();
         int lt = 0;
         HashMap<Integer, Integer> map = new HashMap<>();
