@@ -12,7 +12,7 @@ public class Main {
         return;
     }
 
-    private static int solution(String n, String m) {
+    public static int solution(String n, String m) {
         int answer = 0;
         HashMap<Character, Integer> map = new HashMap<>();
         HashMap<Character, Integer> map2 = new HashMap<>();
@@ -28,9 +28,9 @@ public class Main {
         int lt = 0;
         for (int rt = m.length() - 1; rt < n.length(); rt++) {
             map.put(n.charAt(rt), map.getOrDefault(n.charAt(rt), 0) + 1);
-            if(map.equals(map2)) answer++;
-            map.put(n.charAt(lt), map.get(n.charAt(lt)) -1);
-            if(map.get(n.charAt(lt)) == 0) map.remove(n.charAt(lt));
+            if (map.equals(map2)) answer++;
+            map.put(n.charAt(lt), map.get(n.charAt(lt)) - 1);
+            if (map.get(n.charAt(lt)) == 0) map.remove(n.charAt(lt));
             lt++;
         }
         return answer;
