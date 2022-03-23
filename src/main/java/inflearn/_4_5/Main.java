@@ -1,7 +1,6 @@
 package inflearn._4_5;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Scanner;
 import java.util.TreeSet;
 
@@ -14,11 +13,11 @@ public class Main {
         for (int i = 0; i < n; i++) {
             ints[i] = kb.nextInt();
         }
-        System.out.print(solution(n, m, ints));
+        System.out.print(solution(m, ints));
         return;
     }
 
-    private static int solution(int n, int m, int[] ints) {
+    public static int solution(int m, int[] ints) {
         int answer = -1;
         TreeSet<Integer> set = new TreeSet<>(Collections.reverseOrder());
         for (int i = 0; i < ints.length; i++) {
@@ -30,10 +29,11 @@ public class Main {
         }
 
         int cnt = 0;
-        for(int x: set) {
+        for (int x : set) {
             cnt++;
-            if(cnt == m) answer =x;
+            if (cnt == m) answer = x;
         }
+
         return answer;
     }
 }
