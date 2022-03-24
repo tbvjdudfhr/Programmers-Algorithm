@@ -12,17 +12,22 @@ public class Main {
         return;
     }
 
-    private static String solution(String line) {
+    public static String solution(String line) {
         Stack<Character> stack = new Stack<>();
         for (char x : line.toCharArray()) {
-            if (x == '(') stack.push(x);
-            else {
-                if (stack.isEmpty()) return "NO";
-                else stack.pop();
+            if (x == '(') {
+                stack.push(x);
+            } else {
+                if (stack.isEmpty()) {
+                    return "NO";
+                } else stack.pop();
             }
         }
 
-        if (!stack.isEmpty()) return "NO";
+        if (!stack.isEmpty()) {
+            return "NO";
+        }
+
         return "YES";
     }
 }
