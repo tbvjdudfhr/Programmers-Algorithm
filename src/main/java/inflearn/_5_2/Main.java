@@ -12,12 +12,12 @@ public class Main {
         return;
     }
 
-    private static String solution(String line) {
+    public static String solution(String line) {
         String answer = "";
         Stack<Character> stack = new Stack<>();
         for (char x : line.toCharArray()) {
             if (x != ')') stack.push(x);
-            else while(stack.pop() != '(');
+            else while (stack.pop() != '(') ;
         }
 
         for (int i = 0; i < stack.size(); i++) {
