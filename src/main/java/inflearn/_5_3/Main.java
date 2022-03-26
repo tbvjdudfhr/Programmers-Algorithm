@@ -23,7 +23,7 @@ public class Main {
         return;
     }
 
-    private static int solution(int[][] board, int[] moves) {
+    public static int solution(int[][] board, int[] moves) {
         int answer = 0;
         Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < moves.length; i++) {
