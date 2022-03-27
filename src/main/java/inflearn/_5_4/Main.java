@@ -12,7 +12,7 @@ public class Main {
         return;
     }
 
-    private static String solution(String line) {
+    public static String solution(String line) {
         String answer = "";
         Stack<Integer> stack = new Stack<>();
         for (char x : line.toCharArray()) {
