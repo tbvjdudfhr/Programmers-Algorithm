@@ -12,7 +12,7 @@ public class Main {
         return;
     }
 
-    private static int solution(String line) {
+    public static int solution(String line) {
         int answer = 0;
         Stack<Character> stack = new Stack<>();
         char preX = '(';
