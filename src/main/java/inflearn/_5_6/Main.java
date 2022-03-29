@@ -14,7 +14,7 @@ public class Main {
         return;
     }
 
-    private static int solution(int n, int k) {
+    public static int solution(int n, int k) {
         Queue<Integer> queue = new LinkedList<>();
         int answer = 0;
         for (int i = 1; i <= n; i++) {
