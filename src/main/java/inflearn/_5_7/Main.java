@@ -14,20 +14,20 @@ public class Main {
         return;
     }
 
-    private static String solution(String n, String k) {
+    public static String solution(String n, String k) {
         Queue<Character> queue = new LinkedList<>();
         for (int i = 0; i < n.length(); i++) {
             queue.offer(n.charAt(i));
         }
 
-        for(char x : k.toCharArray()) {
-            if(queue.isEmpty()) break;
-            else if(queue.contains(x)) {
-                if(queue.poll() != x) return "NO";
+        for (char x : k.toCharArray()) {
+            if (queue.isEmpty()) break;
+            else if (queue.contains(x)) {
+                if (queue.poll() != x) return "NO";
             }
         }
-        
-        if(!queue.isEmpty()) return  "NO";
+
+        if (!queue.isEmpty()) return "NO";
 
         String answer = "YES";
 
