@@ -13,12 +13,12 @@ public class Main {
         for (int i = 0; i < n; i++) {
             ints[i] = kb.nextInt();
         }
-        System.out.print(solution(n, m, ints));
+        System.out.print(solution(m, ints));
 
         return;
     }
 
-    private static int solution(int n, int m, int[] ints) {
+    public static int solution(int m, int[] ints) {
         int answer = 0;
         Queue<Person> queue = new LinkedList<>();
         for (int i = 0; i < ints.length; i++) {
@@ -44,10 +44,11 @@ public class Main {
                 }
             }
         }
+
         return answer;
     }
 
-    public static class Person {
+    private static class Person {
         int id;
         int priority;
 
