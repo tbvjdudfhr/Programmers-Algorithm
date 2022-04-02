@@ -10,11 +10,11 @@ public class Main {
         for (int i = 0; i < n; i++) {
             ints[i] = kb.nextInt();
         }
-        System.out.print(solution(n, ints));
+        System.out.print(solution(ints));
         return;
     }
 
-    private static String solution(int n, int[] ints) {
+    public static String solution(int[] ints) {
         String answer = "";
         for (int i = 1; i < ints.length; i++) {
             for (int j = 0; j < ints.length - 1; j++) {
@@ -29,6 +29,7 @@ public class Main {
         for (int x : ints) {
             answer += x + " ";
         }
+
         return answer;
     }
 }

@@ -26,7 +26,7 @@ public class Main {
             answer += ints[idx] + " ";
             ints[idx] = tmp;
         }
-        
+
         return answer;
     }
 }
