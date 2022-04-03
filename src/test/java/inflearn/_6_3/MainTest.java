@@ -1,4 +1,4 @@
-package inflearn._6_2;
+package inflearn._6_3;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -19,11 +19,10 @@ class MainTest {
         );
     }
 
-    @DisplayName("버블 정렬 테스트")
+    @DisplayName("삽입 정렬 테스트")
     @ParameterizedTest
     @MethodSource("args")
-    void 버블_정렬(int[] input, String result) {
+    void 삽입_정렬(int[] input, String result) {
         assertThat(Main.solution(input)).isEqualTo(result);
     }
 }
-
