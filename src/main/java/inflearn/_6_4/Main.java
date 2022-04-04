@@ -11,25 +11,24 @@ public class Main {
         for (int i = 0; i < m; i++) {
             ints[i] = kb.nextInt();
         }
-        System.out.print(solution(n, m, ints));
+        System.out.print(solution(n, ints));
         return;
     }
 
-    private static String solution(int n, int m, int[] ints) {
+    public static String solution(int n, int[] ints) {
         String answer = "";
         int[] cash = new int[n];
 
-        for(int x : ints) {
+        for (int x : ints) {
             int pos = -1;
-            for(int i = 0; i< n; i++) if(x==cash[i]) pos = i;
-            if(pos == -1){
-                for (int i = n -1; i >= 1; i--) {
-                    cash[i] = cash[i-1];
+            for (int i = 0; i < n; i++) if (x == cash[i]) pos = i;
+            if (pos == -1) {
+                for (int i = n - 1; i >= 1; i--) {
+                    cash[i] = cash[i - 1];
                 }
-            }
-            else {
+            } else {
                 for (int i = pos; i >= 1; i--) {
-                    cash[i] = cash[i-1];
+                    cash[i] = cash[i - 1];
                 }
             }
             cash[0] = x;
@@ -38,6 +37,7 @@ public class Main {
         for (int x : cash) {
             answer += x + " ";
         }
+
         return answer;
     }
 }
