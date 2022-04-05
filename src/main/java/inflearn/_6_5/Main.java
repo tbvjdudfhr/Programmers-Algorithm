@@ -15,11 +15,13 @@ public class Main {
         return;
     }
 
-    private static String solution(int[] ints) {
+    public static String solution(int[] ints) {
         String answer = "U";
         Arrays.sort(ints);
         for (int i = 0; i < ints.length - 1; i++) {
-            if (ints[i] == ints[i+1]) return  "D";
+            if (ints[i] == ints[i + 1]) {
+                return "D";
+            }
         }
         return answer;
     }
