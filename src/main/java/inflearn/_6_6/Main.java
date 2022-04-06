@@ -15,12 +15,12 @@ public class Main {
         return;
     }
 
-    private static String solution(int[] ints) {
+    public static String solution(int[] ints) {
         String answer = "";
         int[] sortedInts = ints.clone();
 
         Arrays.sort(sortedInts);
-        for (int i = 0; i < ints.length ; i++) {
+        for (int i = 0; i < ints.length; i++) {
             if (ints[i] != sortedInts[i]) answer += i + 1 + " ";
         }
         return answer;
