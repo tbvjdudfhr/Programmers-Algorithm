@@ -16,14 +16,14 @@ public class Main {
         return;
     }
 
-    private static String solution(int m, int[] ints) {
+    public static String solution(int m, int[] ints) {
         Arrays.sort(ints);
 
         int lt = 0, rt = ints.length;
         while (true) {
             int tmp = (lt + rt) / 2;
-            if(m == ints[tmp]) return tmp + 1 + "";
-            else if(m < ints[tmp]) rt = tmp - 1;
+            if (m == ints[tmp]) return tmp + 1 + "";
+            else if (m < ints[tmp]) rt = tmp - 1;
             else lt = tmp + 1;
         }
     }
