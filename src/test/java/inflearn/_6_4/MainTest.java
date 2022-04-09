@@ -23,7 +23,7 @@ class MainTest {
     @DisplayName("캐시메모리의 상태를 가장 최근 사용된 작업부터 차례대로 출력 테스트")
     @ParameterizedTest
     @MethodSource("args")
-    void Least_Recently_Used(int input, int[] input2, String result) {
+    void 캐시메모리(int input, int[] input2, String result) {
         assertThat(Main.solution(input, input2)).isEqualTo(result);
     }
 }
