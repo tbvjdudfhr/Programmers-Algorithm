@@ -16,7 +16,7 @@ public class Main {
         return;
     }
 
-    private static int solution(int m, int[] ints) {
+    public static int solution(int m, int[] ints) {
         int answer = 0;
         int sum = Arrays.stream(ints).sum();
         int lt = ints[ints.length - 1];
