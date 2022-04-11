@@ -1,4 +1,4 @@
-package inflearn._6_9;
+package inflearn._6_10;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -14,16 +14,17 @@ class MainTest {
         return Stream.of(
                 Arguments.of(
                         3,
-                        new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9},
-                        17
+                        new int[]{1, 2, 8, 4, 9},
+                        3
                 )
         );
     }
 
-    @DisplayName("뮤직비디오 결정 알고리즘 테스트")
+    @DisplayName("마구간 정하기 결정 알고리즘 테스트")
     @ParameterizedTest
     @MethodSource("args")
-    void 뮤직비디오(int input, int[] input2, int result) {
+    void 마구간_정하기(int input, int[] input2, int result) {
         assertThat(Main.solution(input, input2)).isEqualTo(result);
     }
 }
+
