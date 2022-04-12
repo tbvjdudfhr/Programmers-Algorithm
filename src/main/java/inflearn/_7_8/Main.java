@@ -8,7 +8,7 @@ public class Main {
     private static int[] ck;
     private static int[] move = {1, -1, 5};
 
-    private static int bfs(int s, int e) {
+    public static int bfs(int s, int e) {
         ck = new int[10001];
         Queue<Integer> queue = new LinkedList<>();
         queue.offer(s);
