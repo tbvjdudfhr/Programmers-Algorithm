@@ -6,13 +6,18 @@ public class Main {
     static int n, maxWeight = 0, weight = Integer.MIN_VALUE;
 
     public static void DFS(int L, int sum, int[] arr) {
-        if (sum > maxWeight) return;
+        if (sum > maxWeight) {
+            return;
+        }
+
         if (L == n) {
             weight = Math.max(weight, sum);
-        } else {
-            DFS(L + 1, sum + arr[L], arr);
-            DFS(L + 1, sum, arr);
+            return;
         }
+
+        DFS(L + 1, sum + arr[L], arr);
+        DFS(L + 1, sum, arr);
+
     }
 
     public static void main(String[] args) {
