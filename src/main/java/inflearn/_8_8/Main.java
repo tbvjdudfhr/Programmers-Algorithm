@@ -9,14 +9,18 @@ public class Main {
     static int[] answer;
     static int[] check;
     static int[][] combinationMemory = new int[35][35];
+    static String solution = "";
     private static boolean flag = false;
 
     public static void dfs(int n, int sum) {
-        if(flag) return;
+        if (flag) return;
         if (n == number) {
-            if(sum == finalNumber) {
-                for(int x : answer) System.out.print(x + " ");
-                flag =true;
+            if (sum == finalNumber) {
+                for (int x : answer) {
+                    solution += x + " ";
+                    System.out.print(x + " ");
+                }
+                flag = true;
             }
         } else {
             for (int i = 1; i <= number; i++) {
@@ -44,7 +48,7 @@ public class Main {
         return;
     }
 
-    private static int combination(int n, int r) {
+    public static int combination(int n, int r) {
         if (combinationMemory[n][r] != 0) return combinationMemory[n][r];
         if (n == r || r == 0) return 1;
         else return combinationMemory[n][r] = combination(n - 1, r - 1) + combination(n - 1, r);
