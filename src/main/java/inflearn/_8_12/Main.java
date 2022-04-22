@@ -13,7 +13,7 @@ public class Main {
     static int n, m, answer = 0;
     static Queue<Point> queue = new LinkedList<>();
 
-    private static class Point {
+    public static class Point {
         int x;
         int y;
 
