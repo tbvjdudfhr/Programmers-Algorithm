@@ -33,9 +33,10 @@ class MainTest {
     @MethodSource("args")
     void 섬나라_아일랜드(int input, int[][] input2, int result) {
         Main.board = input2;
-
-        for (int i = 0; i < input; i++) {
-            for (int j = 0; j < input; j++) {
+        Main.n = input;
+        
+        for (int i = 0; i < Main.n; i++) {
+            for (int j = 0; j < Main.n; j++) {
                 if (Main.board[i][j] == 1) {
                     Main.DFS(i, j);
                     Main.answer++;
