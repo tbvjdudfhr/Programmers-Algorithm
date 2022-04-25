@@ -50,7 +50,7 @@ class Main {
         System.out.println(answer);
     }
 
-    private static class Point {
+    public static class Point {
         int x;
         int y;
 
