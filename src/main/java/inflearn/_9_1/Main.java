@@ -20,7 +20,7 @@ public class Main {
         return;
     }
 
-    private static int Solution(ArrayList<Player> players) {
+    public static int Solution(ArrayList<Player> players) {
         Collections.sort(players);
         int cnt = 0, maxWeight = 0;
         for (Player player : players) {
@@ -32,13 +32,17 @@ public class Main {
         return cnt;
     }
 
-    private static class Player implements Comparable<Player> {
+    static class Player implements Comparable<Player> {
         int height;
         int weight;
 
         public Player(int height, int weight) {
             this.height = height;
             this.weight = weight;
+        }
+
+        static Player of(int height, int weight) {
+            return new Player(height, weight);
         }
 
         @Override
