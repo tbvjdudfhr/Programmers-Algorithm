@@ -18,7 +18,7 @@ public class Main {
         System.out.println(Solution(meetings));
     }
 
-    private static int Solution(ArrayList<Meeting> meetings) {
+    public static int Solution(ArrayList<Meeting> meetings) {
         Collections.sort(meetings);
         int cnt = 0, minEndTime = 0;
         for (Meeting meeting : meetings) {
@@ -30,13 +30,17 @@ public class Main {
         return cnt;
     }
 
-    private static class Meeting implements Comparable<Meeting> {
+    static class Meeting implements Comparable<Meeting> {
         int startTime;
         int endTime;
 
-        public Meeting(int startTime, int endTime) {
+        private Meeting(int startTime, int endTime) {
             this.startTime = startTime;
             this.endTime = endTime;
+        }
+
+        public static Meeting of(int startTime, int endTime) {
+            return new Meeting(startTime, endTime);
         }
 
         @Override
