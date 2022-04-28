@@ -20,7 +20,7 @@ public class Main {
         return;
     }
 
-    private static int solution(ArrayList<Wedding> weddings, TreeSet<Integer> treeSet) {
+    public static int solution(ArrayList<Wedding> weddings, TreeSet<Integer> treeSet) {
         int answer = 0;
         int cnt = 0;
         Collections.sort(weddings);
@@ -38,13 +38,17 @@ public class Main {
         return answer;
     }
 
-    private static class Wedding implements Comparable<Wedding> {
+    public static class Wedding implements Comparable<Wedding> {
         int time;
         char status;
 
-        public Wedding(int time, char status) {
+        private Wedding(int time, char status) {
             this.time = time;
             this.status = status;
+        }
+
+        public static Wedding of(int time, char status) {
+            return new Wedding(time, status);
         }
 
         @Override
