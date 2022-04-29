@@ -18,7 +18,7 @@ public class Main {
         System.out.println(solution(lectures, maxDate));
     }
 
-    private static int solution(ArrayList<Lecture> lectures, int maxDate) {
+    public static int solution(ArrayList<Lecture> lectures, int maxDate) {
         Collections.sort(lectures);
         PriorityQueue<Integer> integerPriorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
         int answer = 0;
@@ -35,13 +35,17 @@ public class Main {
         return answer;
     }
 
-    private static class Lecture implements Comparable<Lecture> {
+    public static class Lecture implements Comparable<Lecture> {
         int money;
         int date;
 
-        public Lecture(int money, int date) {
+        private Lecture(int money, int date) {
             this.money = money;
             this.date = date;
+        }
+
+        public static Lecture of(int money, int date) {
+            return new Lecture(money, date);
         }
 
         @Override
