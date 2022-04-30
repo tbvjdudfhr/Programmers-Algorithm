@@ -21,19 +21,42 @@ public class Main {
 
         int firstStudent = kb.nextInt();
         int secondStudent = kb.nextInt();
-        if (find(firstStudent) != find(secondStudent)) System.out.println("NO");
-        else System.out.println("YES");
+        System.out.println(solution(firstStudent, secondStudent));
     }
 
-    private static void union(int first, int second) {
+    public static String solution(int firstStudent, int secondStudent) {
+        if (find(firstStudent) != find(secondStudent)) {
+            return "NO";
+        }
+
+        return "YES";
+    }
+
+    public static void union(int first, int second) {
         students[find(first)] = find(second);
     }
 
-    private static int find(int studentNumber) {
-        if (students[studentNumber] == studentNumber) return studentNumber;
+    public static int find(int studentNumber) {
+        if (students[studentNumber] == studentNumber) {
+            return studentNumber;
+        }
         else {
             students[studentNumber] = find(students[studentNumber]);
             return find(students[studentNumber]);
+        }
+    }
+
+    static class Friend {
+        int first;
+        int second;
+
+        private Friend(int first, int second) {
+            this.first = first;
+            this.second = second;
+        }
+
+        public static Friend of (int first, int second) {
+            return new Friend(first, second);
         }
     }
 }
