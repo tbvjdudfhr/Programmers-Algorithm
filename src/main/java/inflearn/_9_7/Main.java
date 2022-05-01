@@ -6,16 +6,16 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
-    static int[] parent ;
+    static int[] parent;
 
     public static void main(String[] args) {
         Scanner kb = new Scanner(System.in);
         int cityNumber = kb.nextInt();
         int roadNumber = kb.nextInt();
-        parent  = new int[cityNumber + 1];
+        parent = new int[cityNumber + 1];
 
         for (int i = 1; i < cityNumber + 1; i++) {
-            parent [i] = i;
+            parent[i] = i;
         }
         ArrayList<Edge> edges = new ArrayList<>();
         for (int i = 0; i < roadNumber; i++) {
@@ -28,7 +28,7 @@ public class Main {
         System.out.println(solution(edges));
     }
 
-    private static int solution(ArrayList<Edge> edges) {
+    public static int solution(ArrayList<Edge> edges) {
         int answer = 0;
         Collections.sort(edges);
         for (Edge edge : edges) {
@@ -41,24 +41,28 @@ public class Main {
     }
 
     private static void union(int first, int second) {
-        if(find(first) != find(second)) parent[find(first)] = find(second);
+        if (find(first) != find(second)) parent[find(first)] = find(second);
     }
 
     private static int find(int no) {
-        if(no == parent[no]) return no;
+        if (no == parent[no]) return no;
         parent[no] = find(parent[no]);
         return find(parent[no]);
     }
 
-    private static class Edge implements Comparable<Edge> {
+    public static class Edge implements Comparable<Edge> {
         private int aCity;
         private int bCity;
         private int cost;
 
-        public Edge(int aCity, int bCity, int cost) {
+        private Edge(int aCity, int bCity, int cost) {
             this.aCity = aCity;
             this.bCity = bCity;
             this.cost = cost;
+        }
+
+        public static Edge of(int aCity, int bCity, int cost) {
+            return new Edge(aCity, bCity, cost);
         }
 
         @Override
