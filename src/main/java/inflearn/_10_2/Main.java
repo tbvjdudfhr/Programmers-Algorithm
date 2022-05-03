@@ -12,7 +12,7 @@ public class Main {
         System.out.println(dp[input]);
     }
 
-    private static void solution(int input) {
+    public static void solution(int input) {
         for (int i = 1; i <= input; i++) {
             if (i == 1) {
                 dp[i] = 1;
