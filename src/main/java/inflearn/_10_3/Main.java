@@ -18,7 +18,7 @@ public class Main {
         System.out.println(Arrays.stream(dp).max().getAsInt());
     }
 
-    private static void solution(int[] numbers) {
+    public static void solution(int[] numbers) {
         for (int i = 0; i < numbers.length; i++) {
             int max = 0;
             for (int j = i - 1; j >= 0; j--) {
