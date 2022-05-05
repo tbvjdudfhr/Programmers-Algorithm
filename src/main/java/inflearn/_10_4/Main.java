@@ -24,7 +24,7 @@ public class Main {
         System.out.println(solution(bricks));
     }
 
-    private static int solution(ArrayList<Brick> bricks) {
+    public static int solution(ArrayList<Brick> bricks) {
         int answer;
         Collections.sort(bricks);
         dp[0] = bricks.get(0).height;
@@ -43,15 +43,19 @@ public class Main {
         return answer;
     }
 
-    private static class Brick implements Comparable<Brick> {
+    public static class Brick implements Comparable<Brick> {
         private final int area;
         private final int height;
         private final int weight;
 
-        public Brick(int area, int height, int weight) {
+        private Brick(int area, int height, int weight) {
             this.area = area;
             this.height = height;
             this.weight = weight;
+        }
+
+        public static Brick of(int area, int height, int weight) {
+            return new Brick(area, height, weight);
         }
 
         @Override
