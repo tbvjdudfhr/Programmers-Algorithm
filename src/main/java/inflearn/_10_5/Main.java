@@ -20,7 +20,7 @@ public class Main {
         System.out.println(solution(typesCoins));
     }
 
-    private static int solution(int[] typesCoins) {
+    public static int solution(int[] typesCoins) {
         Arrays.fill(dp, Integer.MAX_VALUE);
         dp[0] = 0;
         for (int typeCoin : typesCoins) {
