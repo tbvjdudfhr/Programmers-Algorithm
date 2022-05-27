@@ -31,10 +31,10 @@ class SolutionTest {
         );
     }
 
-    @DisplayName("신규 유저가 입력한 아이디를 추천 아이디로 변경 테스트")
+    @DisplayName("각 번호를 누른 손가락이 오른손인지 왼손인지 테스트")
     @ParameterizedTest
     @MethodSource("args")
-    void 신규_아이디_추천(int[] numbers, String hand, String result) {
+    void 키패드_누르기(int[] numbers, String hand, String result) {
         Solution sol = new Solution();
         assertThat(sol.solution(numbers, hand)).isEqualTo(result);
     }
