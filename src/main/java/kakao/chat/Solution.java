@@ -1,30 +1,38 @@
 package kakao.chat;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.StringTokenizer;
 
 class Solution {
     public String[] solution(String[] record) {
+        ArrayList<String> list = new ArrayList<>();
         HashMap<String, String> hashMap = new HashMap<>();
-        int count = 0;
 
-        for (String message: record) {
-            String[] strings = message.split(" ");
-            if(!strings[0].equals("Leave")) {
-                hashMap.put(strings[1], strings[2]);
-                count++;
+        for (String message : record) {
+            StringTokenizer tokenizer = new StringTokenizer(message);
+            String cmd = tokenizer.nextToken();
+            if (!cmd.equals("Leave")) {
+                String id = tokenizer.nextToken();
+                String name = tokenizer.nextToken();
+                hashMap.put(id, name);
             }
         }
 
-        String[] answer = new String[count];
-
-        for (int i = 0; i < record.length; i++) {
-            String[] strings = record[i].split(" ");
-            if(strings[0].equals("Enter")) {
-                answer[i]  = hashMap.get(strings[1]) + "님이 들어왔습니다.";
-            } else if (strings[0].equals("Leave")) {
-                answer[i]  = hashMap.get(strings[1]) + "님이 나갔습니다.";
+        for (String message : record) {
+            StringTokenizer tokenizer = new StringTokenizer(message);
+            String cmd = tokenizer.nextToken();
+            if (cmd.equals("Enter")) {
+                String id = tokenizer.nextToken();
+                list.add(hashMap.get(id) + "님이 들어왔습니다.");
+            } else if (cmd.equals("Leave")) {
+                String id = tokenizer.nextToken();
+                list.add(hashMap.get(id) + "님이 나갔습니다.");
             }
         }
+
+        String[] answer = new String[list.size()];
+        list.toArray(answer);
 
         return answer;
     }
