@@ -39,7 +39,7 @@ class SolutionTest {
     @DisplayName("튜플을 배열에 담는 테스트")
     @ParameterizedTest
     @MethodSource("args")
-    void 튜플(String s, String result) {
+    void 튜플(String s, int[] result) {
         Solution sol = new Solution();
         assertThat(sol.solution(s)).isEqualTo(result);
     }
