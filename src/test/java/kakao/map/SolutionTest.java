@@ -27,10 +27,10 @@ class SolutionTest {
         );
     }
 
-    @DisplayName("각 번호를 누른 손가락이 오른손인지 왼손인지 테스트")
+    @DisplayName("비밀지도의 암호를 해독하는 테스트")
     @ParameterizedTest
     @MethodSource("args")
-    void 키패드_누르기(int n, int[] arr1, int[] arr2, String[] result) {
+    void 비밀지도(int n, int[] arr1, int[] arr2, String[] result) {
         Solution sol = new Solution();
         assertThat(sol.solution(n, arr1, arr2)).isEqualTo(result);
     }
