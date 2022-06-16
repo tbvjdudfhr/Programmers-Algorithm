@@ -30,7 +30,7 @@ class SolutionTest {
     @DisplayName("다트 게임의 점수 계산 테스트")
     @ParameterizedTest
     @MethodSource("args")
-    void 다트_게임(String dartResult, String result) {
+    void 다트_게임(String dartResult, int result) {
         Solution sol = new Solution();
         assertThat(sol.solution(dartResult)).isEqualTo(result);
     }
