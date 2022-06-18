@@ -29,7 +29,7 @@ class SolutionTest {
     @DisplayName("릴레이션이서 후보 키의 개수 테스트")
     @ParameterizedTest
     @MethodSource("args")
-    void 후보키(String[][] relation, String result) {
+    void 후보키(String[][] relation, int result) {
         Solution sol = new Solution();
         assertThat(sol.solution(relation)).isEqualTo(result);
     }
