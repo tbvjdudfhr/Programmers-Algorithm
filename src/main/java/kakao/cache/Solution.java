@@ -37,7 +37,10 @@ public class Solution {
     }
 
     private int processHit(City city) {
+        cache.remove(city);
         city.updateTime(currentTime);
+        cache.add(city);
+
         return HIT;
     }
 
