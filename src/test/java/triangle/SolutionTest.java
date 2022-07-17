@@ -30,7 +30,7 @@ class SolutionTest {
     @DisplayName("반시계 방향으로 달팽이 채우기를 진행한 후, 첫 행부터 마지막 행까지 모두 순서대로 합친 새로운 배열 테스트")
     @ParameterizedTest
     @MethodSource("args")
-    void 삼각_달팽이(int n, int result) {
+    void 삼각_달팽이(int n, int[] result) {
         Solution sol = new Solution();
         assertThat(sol.solution(n)).isEqualTo(result);
     }
