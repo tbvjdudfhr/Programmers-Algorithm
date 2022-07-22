@@ -1,4 +1,4 @@
-package leetcode.binarysearch._82;
+package leetcode._82;
 
 public class Solution {
     public ListNode deleteDuplicates(ListNode head) {

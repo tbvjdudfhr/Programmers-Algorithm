@@ -1,4 +1,4 @@
-package leetcode.binarysearch._844;
+package leetcode._844;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;

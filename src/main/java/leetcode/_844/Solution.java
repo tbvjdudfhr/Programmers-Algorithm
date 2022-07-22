@@ -1,4 +1,4 @@
-package leetcode.binarysearch._844;
+package leetcode._844;
 
 public class Solution {
     public boolean backspaceCompare(String s, String t) {
