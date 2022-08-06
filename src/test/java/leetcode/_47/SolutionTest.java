@@ -16,7 +16,7 @@ class SolutionTest {
     private static Stream<Arguments> args() {
         return Stream.of(
                 Arguments.of(
-                        new int[]{1, 2, 2},
+                        new int[]{1, 1, 2},
                         Lists.newArrayList(
                                 Arrays.asList(1, 1, 2),
                                 Arrays.asList(1, 2, 1),
