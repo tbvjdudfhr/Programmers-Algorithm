@@ -19,7 +19,7 @@ class SolutionTest {
         );
     }
 
-    @DisplayName("배열이 주어지면 처음에는 배열의 첫 번째 인덱스에 위치하게 됩니다. 배열의 각 요소는 해당 위치에서 최대 점프 길이 테스트")
+    @DisplayName("배열이 주어지면 최소 점프 횟수로 마지막에 도달 테스트")
     @ParameterizedTest
     @MethodSource("args")
     void 점프_게임_투(int[] nums, int result) {
