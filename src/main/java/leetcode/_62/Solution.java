@@ -1,30 +1,19 @@
 package leetcode._62;
 
 public class Solution {
-    int[][] ints;
-    int[][] directions = {{1, 0}, {0, 1}};
-    int count = 0;
-
     public int uniquePaths(int m, int n) {
-        ints = new int[m][n];
-        dfs(0, 0);
-        return count;
-    }
-
-    private void dfs(int row, int column) {
-        int rowLength = ints.length;
-        int columnLength = ints[0].length;
-        if (row == rowLength - 1 && column == columnLength - 1) {
-            count++;
+        int[][] dp = new int[m][n];
+        for (int i = 0; i < m; i++) {
+            dp[i][0] = 1;
         }
-
-        for (int[] direction: directions) {
-            int nextRow = row + direction[0];
-            int nextColumn = column + direction[1];
-            if(nextRow < rowLength && nextColumn < columnLength) {
-                dfs(nextRow, nextColumn);
+        for (int j = 0; j < n; j++) {
+            dp[0][j] = 1;
+        }
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
             }
         }
-
+        return dp[m - 1][n - 1];
     }
 }
