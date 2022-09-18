@@ -16,7 +16,10 @@ class SolutionTest {
                 Arguments.of(
                         new ListNode(1, new ListNode(2, new ListNode(2, new ListNode(1)))),
                         true
-
+                ),
+                Arguments.of(
+                        new ListNode(1, new ListNode(2)),
+                        false
                 )
         );
     }
