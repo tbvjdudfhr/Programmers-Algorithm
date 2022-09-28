@@ -2,7 +2,17 @@ package leetcode._226;
 
 public class Solution {
     public TreeNode invertTree(TreeNode root) {
-        return null;
+        if (root == null){
+            return null;
+        }
+
+        TreeNode leftNode = invertTree(root.left);
+        TreeNode rightNode = invertTree(root.right);
+
+        root.right = leftNode;
+        root.left = rightNode;
+
+        return root;
     }
 
 
