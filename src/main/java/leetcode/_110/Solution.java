@@ -1,7 +1,7 @@
 package leetcode._110;
 
 public class Solution {
-    boolean balance;
+    boolean balance = true;
 
     public boolean isBalanced(TreeNode root) {
         height(root);
