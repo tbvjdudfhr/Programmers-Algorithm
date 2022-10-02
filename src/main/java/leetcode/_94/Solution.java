@@ -1,10 +1,21 @@
 package leetcode._94;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Solution {
+    List<Integer> list = new ArrayList<>();
     public List<Integer> inorderTraversal(TreeNode root) {
-        return null;
+        dfs(root);
+        return list;
+    }
+
+    private void dfs(TreeNode root) {
+        if (root != null) {
+            dfs(root.left);
+            list.add(root.val);
+            dfs(root.right);
+        }
     }
 
     public static class TreeNode {
