@@ -12,9 +12,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 class SolutionTest {
     private static Stream<Arguments> args() {
         return Stream.of(
-                Arguments.of(
+                /*Arguments.of(
                         new int[]{1, 2, 1, 3, 4, 1, 2},
                         2
+                ),*/
+                Arguments.of(
+                        new int[]{1, 2, 3, 1, 4},
+                        0
                 )
         );
     }
