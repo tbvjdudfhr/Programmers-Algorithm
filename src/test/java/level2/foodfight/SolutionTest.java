@@ -15,6 +15,9 @@ class SolutionTest {
                 Arguments.of(
                         new int[]{1, 3, 4, 6},
                         "1223330333221"
+                ), Arguments.of(
+                        new int[]{1, 7, 1, 2},
+                        "111303111"
                 )
         );
     }
