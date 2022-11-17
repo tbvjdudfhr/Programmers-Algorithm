@@ -1,28 +1,31 @@
 package level2.babbling;
 
 public class Solution {
+
+    private static final String AYA = "aya";
+    private static final String YE = "ye";
+    private static final String WOO = "woo";
+    private static final String MA = "ma";
+
     public int solution(String[] babbling) {
         int answer = 0;
 
         for (String str : babbling) {
-            boolean flag = true;
-            String replaceAll = str.replaceAll("aya", "1")
-                    .replaceAll("ye", "2")
-                    .replaceAll("woo", "3")
-                    .replaceAll("ma", "4");
-            for (int i = 1; i < replaceAll.length(); i++) {
-                char prevCh = replaceAll.charAt(i - 1);
-                char ch = replaceAll.charAt(i);
-                if (prevCh == ch || !Character.isDigit(prevCh) || !Character.isDigit(ch)) {
-                    flag = false;
-                    break;
-                }
+            if (str.contains(AYA + AYA) || str.contains(YE + YE) || str.contains(WOO + WOO) || str.contains(MA + MA)) {
+                continue;
             }
 
-            if(flag) {
+            String replaceStr = str.replaceAll(AYA, " ")
+                    .replaceAll(YE, " ")
+                    .replaceAll(WOO, " ")
+                    .replaceAll(MA, " ");
+
+            replaceStr = replaceStr.replaceAll(" ", "");
+            if (replaceStr.isEmpty()) {
                 answer++;
             }
         }
+
         return answer;
     }
 }
