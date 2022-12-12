@@ -1,6 +1,5 @@
 package level2.defencegame;
 
-import level2.musketeers.Solution;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -31,8 +30,8 @@ class SolutionTest {
     @DisplayName("몇 라운드까지 막을 수 있는지 테스트")
     @ParameterizedTest
     @MethodSource("args")
-    void 디펜스_게임(int[] number, int result) {
-        level2.musketeers.Solution solution = new Solution();
-        assertThat(solution.solution(number)).isEqualTo(result);
+    void 디펜스_게임(int n, int k, int[] enemy, int result) {
+        Solution solution = new Solution();
+        assertThat(solution.solution(n, k, enemy)).isEqualTo(result);
     }
 }
