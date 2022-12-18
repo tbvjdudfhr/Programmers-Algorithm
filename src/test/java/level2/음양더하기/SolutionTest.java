@@ -1,4 +1,4 @@
-package level2.addition;
+package level2.음양더하기;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
