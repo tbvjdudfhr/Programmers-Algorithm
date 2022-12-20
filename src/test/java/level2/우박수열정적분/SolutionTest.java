@@ -20,10 +20,10 @@ class SolutionTest {
         );
     }
 
-    @DisplayName("원형 수열의 연속 부분 수열 합으로 만들 수 있는 수의 개수")
+    @DisplayName("우박수의 초항 k와, 정적분을 구하는 구간들의 목록 ranges가 주어졌을 때 정적분의 결과 목록 테스트")
     @ParameterizedTest
     @MethodSource("args")
-    void 연속_부분_수열_합의_개수(int k, int[][] ranges, double[] result) {
+    void 우박수열_정적분(int k, int[][] ranges, double[] result) {
         Solution solution = new Solution();
         assertThat(solution.solution(k, ranges)).isEqualTo(result);
     }
