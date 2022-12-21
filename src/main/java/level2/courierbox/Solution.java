@@ -1,37 +1,29 @@
 package level2.courierbox;
 
-import java.util.Deque;
 import java.util.LinkedList;
-import java.util.stream.IntStream;
+import java.util.Queue;
+import java.util.Stack;
 
 public class Solution {
     public int solution(int[] order) {
-        Deque<Integer> container = new LinkedList<>();
-        IntStream.rangeClosed(1, order.length).forEach(container::push);
-        Deque<Integer> tmpContainer = new LinkedList<>();
-
+        int answer;
         int cnt = 0;
-        while (!container.isEmpty()) {
-            if (order[cnt] != container.getLast()) {
-                if (!tmpContainer.isEmpty() && order[cnt] == tmpContainer.peek()) {
-                    cnt += 1;
-                    tmpContainer.pop();
-                } else {
-                    tmpContainer.push(container.pollLast());
-                }
-            } else {
-                cnt += 1;
-                container.removeLast();
+
+        Stack<Integer> tmpContainer = new Stack<>();
+        Queue<Integer> container = new LinkedList<>();
+
+        for (int i = 0; i < order.length; i++) {
+            tmpContainer.add(i + 1);
+
+            while (!tmpContainer.isEmpty()) {
+                if (tmpContainer.peek() == order[cnt]) {
+                    container.offer(tmpContainer.pop());
+                    cnt++;
+                } else break;
+
             }
         }
-
-        while (!tmpContainer.isEmpty()) {
-            if (order[cnt] == tmpContainer.peek()) {
-                cnt += 1;
-                tmpContainer.pop();
-            } else break;
-        }
-
-        return cnt;
+        answer = container.size();
+        return answer;
     }
 }
