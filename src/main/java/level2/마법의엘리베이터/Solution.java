@@ -5,7 +5,7 @@ public class Solution {
         var answer = 0;
         String number = "0" + storey;
         int add = 0;
-        for (int i = number.length() - 1; i >= 1; i--) {
+        for (int i = number.length() - 1; i >= 0; i--) {
             int c = Character.getNumericValue(number.charAt(i)) + add;
 
             if (c == 5) {
