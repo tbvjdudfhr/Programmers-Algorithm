@@ -1,41 +1,36 @@
 package level2.dividenumbercards;
 
-import java.util.*;
-
 public class Solution {
     public int solution(int[] arrayA, int[] arrayB) {
         int answer = 0;
-        int minA = Arrays.stream(arrayA).min().getAsInt();
-        int minB = Arrays.stream(arrayB).min().getAsInt();
-        Set<Integer> set = new HashSet<>();
-        for (int i = 2; i <= minA; i++) {
-            if (minA % i == 0) set.add(i);
-        }
-        for (int i = 2; i <= minB; i++) {
-            if (minB % i == 0) set.add(i);
+        int gcdA = arrayA[0];
+        int gcdB = arrayB[0];
+
+        for (int i = 1; i < arrayA.length; i++) {
+            gcdA = gcd(gcdA, arrayA[i]);
+            gcdB = gcd(gcdB, arrayB[i]);
         }
 
-        List<Integer> list = new ArrayList<>(set);
-        for (int k = 0; k < list.size(); k++) {
-            boolean chk = true;
-            for (int i = 0; i < arrayA.length; i++) {
-                if (arrayA[i] % list.get(k) != 0 || arrayB[i] % list.get(k) == 0) {
-                    chk = false;
-                    break;
-                }
-            }
-            if (chk) answer = Math.max(answer, list.get(k));
+        if (notDivisible(arrayB, gcdA))
+            if (answer < gcdA)
+                answer = gcdA;
 
-            chk = true;
-            for (int i = 0; i < arrayB.length; i++) {
-                if (arrayB[i] % list.get(k) != 0 || arrayA[i] % list.get(k) == 0) {
-                    chk = false;
-                    break;
-                }
-            }
-            if (chk) answer = Math.max(answer, list.get(k));
-        }
+        if (notDivisible(arrayA, gcdB))
+            if (answer < gcdB)
+                answer = gcdB;
 
         return answer;
+    }
+
+    private boolean notDivisible(int[] arr, int num) {
+        for (int n : arr)
+            if (n % num == 0)
+                return false;
+        return true;
+    }
+
+    private int gcd(int a, int b) {
+        if (a % b == 0) return b;
+        return gcd(b, a % b);
     }
 }
