@@ -22,12 +22,12 @@ class SolutionTest {
                                 {0, 1, 0, 0, 0, 0, 0},
                                 {0, 1, 1, 1, 1, 1, 0},
                                 {0, 1, 1, 1, 0, 0, 0}},
-                        Arrays.asList(3, 7, 8, 9)
+                        new ArrayList<>(Arrays.asList(7, 8, 9))
                 )
         );
     }
 
-    @DisplayName("지도를 입력하여 단지수를 출력하고, 각 단지에 속하는 집의 수를 오름차순으로 정렬하여 출력 테스트")
+    @DisplayName("지도를 입력하여 각 단지에 속하는 집의 수를 오름차순으로 정렬하여 출력 테스트")
     @ParameterizedTest
     @MethodSource("args")
     void 단지번호붙이기(int[][] graph, ArrayList<Integer> result) {
