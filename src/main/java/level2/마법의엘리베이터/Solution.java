@@ -2,28 +2,51 @@ package level2.마법의엘리베이터;
 
 public class Solution {
     public int solution(int storey) {
-        var answer = 0;
-        String number = "0" + storey;
-        int add = 0;
-        for (int i = number.length() - 1; i >= 0; i--) {
-            int c = Character.getNumericValue(number.charAt(i)) + add;
+        int answer = 0;
 
-            if (c == 5) {
-                if (number.charAt(i - 1) < 5) {
-                    answer += c;
-                    add = 0;
-                } else {
-                    answer += 10 - c;
-                    add = 1;
+        String stVal = String.valueOf(storey);
+        char[] chars = stVal.toCharArray();
+        int[] ints = new int[chars.length];
+        for (int i = 0; i < chars.length; i++) {
+            ints[i] = chars[i] - '0';
+        }
+
+        for (int i = ints.length - 1; i >= 0; i--) {
+            int anInt = ints[i];
+
+            if (anInt == 10) {
+                if (i - 1 < 0) {
+                    answer += 1;
+                    continue;
                 }
-            } else if (c < 5) {
-                answer += c;
-                add = 0;
-            } else {
-                answer += 10 - c;
-                add = 1;
+
+                ints[i - 1]++;
+                continue;
+            }
+
+            if (anInt >= 6) {
+                answer += (10 - anInt);
+                if (i - 1 < 0) {
+                    answer += 1;
+                    continue;
+                }
+                ints[i - 1]++;
+            } else if (anInt <= 4) {
+                answer += anInt;
+            } else if (anInt == 5) {
+                if (i - 1 < 0) {
+                    answer += 5;
+                } else {
+                    if (ints[i - 1] < 5) {
+                        answer += anInt;
+                    } else {
+                        answer += 5;
+                        ints[i - 1]++;
+                    }
+                }
             }
         }
+
         return answer;
     }
 }
