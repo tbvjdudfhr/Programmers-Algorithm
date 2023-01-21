@@ -22,7 +22,7 @@ public class Solution {
         Set<Integer> weightSet = Arrays.stream(weights).boxed().collect(Collectors.toSet());
 
         for (Integer key : weightSet) {
-            int duplicate = hashMap.get(key).size();
+            long duplicate = hashMap.get(key).size();
             int partnerWeight;
 
             int weightX2 = key * 2;
@@ -71,7 +71,7 @@ public class Solution {
             }
 
             if (duplicate > 1) {
-                answer += (long) (duplicate * duplicate - 1) / 2;
+                answer += (duplicate * (duplicate - 1)) / 2;
             }
 
             hashMap.remove(key);
@@ -79,7 +79,7 @@ public class Solution {
         return answer;
     }
 
-    private long getCount(HashMap<Integer, HashSet<Integer>> map, int weight, int duplicate) {
-        return map.get(weight).size() * duplicate;
+    private long getCount(HashMap<Integer, HashSet<Integer>> map, int weight, long duplicate) {
+        return (long) map.get(weight).size() * duplicate;
     }
 }
