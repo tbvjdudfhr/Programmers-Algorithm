@@ -2,84 +2,23 @@ package level2.시소짝꿍;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public class Solution {
     public long solution(int[] weights) {
         long answer = 0;
-        HashMap<Integer, HashSet<Integer>> hashMap = new HashMap<>();
-        for (int i = 0; i < weights.length; i++) {
-            int weight = weights[i];
-            if (hashMap.containsKey(weight)) {
-                HashSet<Integer> set = hashMap.get(weight);
-                set.add(i);
-            } else {
-                hashMap.put(weight, new HashSet<>(Arrays.asList(i)));
+        Arrays.sort(weights);
+        HashMap<Double, Integer> map = new HashMap<>();
+
+        for (Integer weight : weights) {
+            double w = Double.valueOf(weight);
+            if (map.containsKey(w)) {
+                answer += map.get(w);
             }
-        }
-        Set<Integer> weightSet = Arrays.stream(weights).boxed().collect(Collectors.toSet());
-
-        for (Integer key : weightSet) {
-            long duplicate = hashMap.get(key).size();
-            int partnerWeight;
-
-            int weightX2 = key * 2;
-            if (weightX2 % 3 == 0) {
-                partnerWeight = weightX2 / 3;
-                if (hashMap.containsKey(partnerWeight)) {
-                    answer += getCount(hashMap, partnerWeight, duplicate);
-                }
-            }
-
-            if (weightX2 % 4 == 0) {
-                partnerWeight = weightX2 / 4;
-                if (hashMap.containsKey(partnerWeight)) {
-                    answer += getCount(hashMap, partnerWeight, duplicate);
-                }
-            }
-
-            int weightX3 = key * 3;
-            if (weightX3 % 2 == 0) {
-                partnerWeight = weightX3 / 2;
-                if (hashMap.containsKey(partnerWeight)) {
-                    answer += getCount(hashMap, partnerWeight, duplicate);
-                }
-            }
-
-            if (weightX3 % 4 == 0) {
-                partnerWeight = weightX3 / 4;
-                if (hashMap.containsKey(partnerWeight)) {
-                    answer += getCount(hashMap, partnerWeight, duplicate);
-                }
-            }
-
-            int weightX4 = key * 4;
-            if (weightX4 % 2 == 0) {
-                partnerWeight = weightX4 / 2;
-                if (hashMap.containsKey(partnerWeight)) {
-                    answer += getCount(hashMap, partnerWeight, duplicate);
-                }
-            }
-
-            if (weightX4 % 3 == 0) {
-                partnerWeight = weightX4 / 3;
-                if (hashMap.containsKey(partnerWeight)) {
-                    answer += getCount(hashMap, partnerWeight, duplicate);
-                }
-            }
-
-            if (duplicate > 1) {
-                answer += (duplicate * (duplicate - 1)) / 2;
-            }
-
-            hashMap.remove(key);
+            map.put(w, map.getOrDefault(w, 0) + 1);
+            map.put(w * 4 / 3, map.getOrDefault(w * 4 / 3, 0) + 1);
+            map.put(w * 1.5, map.getOrDefault(w * 1.5, 0) + 1);
+            map.put(w * 2, map.getOrDefault(w * 2, 0) + 1);
         }
         return answer;
-    }
-
-    private long getCount(HashMap<Integer, HashSet<Integer>> map, int weight, long duplicate) {
-        return (long) map.get(weight).size() * duplicate;
     }
 }
