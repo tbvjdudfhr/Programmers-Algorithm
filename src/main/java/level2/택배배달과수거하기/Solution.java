@@ -1,77 +1,46 @@
 package level2.택배배달과수거하기;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
 
 public class Solution {
+    ArrayDeque<Integer> deliveriesDeque, pickupsDeque;
+
     public long solution(int cap, int n, int[] deliveries, int[] pickups) {
         long answer = 0;
-        Stack<Integer> dStack = new Stack<>();
-        Stack<Integer> pStack = new Stack<>();
-        for (int i = 0; i < n; i++) {
-            if (deliveries[i] > 0) {
-                dStack.add(i);
+
+        deliveriesDeque = ArrayToDeque(deliveries);
+        pickupsDeque = ArrayToDeque(pickups);
+        addZeroBeforeDeque();
+
+        int index = 0;
+        while (!deliveriesDeque.isEmpty()) {
+            int toDeliver = deliveriesDeque.removeLast();
+            int toPickup = pickupsDeque.removeLast();
+            if (index % cap == 0) {
+                answer += Math.max(toDeliver, toPickup) * 2;
             }
-            if (pickups[i] > 0) {
-                pStack.add(i);
-            }
+            index++;
         }
 
-
-        while (!dStack.empty() && !pStack.empty()) {
-            answer += Math.max((dStack.peek() + 1) * 2, (pStack.peek() + 1) * 2);
-
-            int box = 0;
-            while (!dStack.empty() && box <= cap) {
-                if (deliveries[dStack.peek()] + box <= cap) {
-                    box += deliveries[dStack.peek()];
-                } else {
-                    deliveries[dStack.peek()] -= (cap - box);
-                    break;
-                }
-                dStack.pop();
-            }
-
-            box = 0;
-            while (!pStack.empty() && box <= cap) {
-                if (pickups[pStack.peek()] + box <= cap) {
-                    box += pickups[pStack.peek()];
-                } else {
-                    pickups[pStack.peek()] -= (cap - box);
-                    break;
-                }
-                pStack.pop();
-            }
-        }
-
-        while (!dStack.empty()) {
-            answer += (dStack.peek() + 1) * 2;
-
-            int box = 0;
-            while (!dStack.empty() && box <= cap) {
-                if (deliveries[dStack.peek()] + box <= cap) {
-                    box += deliveries[dStack.peek()];
-                } else {
-                    deliveries[dStack.peek()] -= (cap - box);
-                    break;
-                }
-                dStack.pop();
-            }
-        }
-
-        while (!pStack.empty()) {
-            answer += (pStack.peek() + 1) * 2;
-
-            int box = 0;
-            while (!pStack.empty() && box <= cap) {
-                if (pickups[pStack.peek()] + box <= cap) {
-                    box += pickups[pStack.peek()];
-                } else {
-                    pickups[pStack.peek()] -= (cap - box);
-                    break;
-                }
-                pStack.pop();
-            }
-        }
         return answer;
+    }
+
+    public ArrayDeque<Integer> ArrayToDeque(int[] array) {
+        ArrayDeque<Integer> deque = new ArrayDeque<>();
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i]; j++) {
+                deque.offerLast(i + 1);
+            }
+        }
+        return deque;
+    }
+
+    public void addZeroBeforeDeque() {
+        int sizeOfDeliveries = deliveriesDeque.size();
+        int sizeOfPickups = pickupsDeque.size();
+        int difference = Math.abs(sizeOfPickups - sizeOfDeliveries);
+        for (int i = 0; i < difference; i++) {
+            (sizeOfDeliveries < sizeOfPickups ? deliveriesDeque : pickupsDeque).offerFirst(0);
+        }
     }
 }
