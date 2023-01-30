@@ -26,7 +26,7 @@ class SolutionTest {
     @DisplayName("모든 원소에 대한 뒷 큰수들을 차례로 담은 배열 테스트")
     @ParameterizedTest
     @MethodSource("args")
-    void 숫자_변환하기(int[] numbers, int[] result) {
+    void 뒤에_있는_큰_수_찾기(int[] numbers, int[] result) {
         Solution solution = new Solution();
         assertThat(solution.solution(numbers)).isEqualTo(result);
     }
