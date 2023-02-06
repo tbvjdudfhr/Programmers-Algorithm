@@ -19,8 +19,8 @@ public class Solution {
     }
 
     private static int getMax(List<BookTime> bookTimes, BookTime bookTime) {
-        long startTimeCount = bookTimes.stream().filter(a -> bookTime.startTime.compareTo(a.startTime) >= 0 &&  bookTime.startTime.compareTo(a.endTime) <= 0).count();
-        long endTimeCount = bookTimes.stream().filter(a -> bookTime.endTime.compareTo(a.startTime) >= 0 && bookTime.endTime.compareTo(a.endTime) <= 0).count();
+        long startTimeCount = bookTimes.stream().filter(a -> bookTime.startTime.compareTo(a.startTime) >= 0 &&  bookTime.startTime.compareTo(a.endTime) < 0).count();
+        long endTimeCount = bookTimes.stream().filter(a -> bookTime.endTime.compareTo(a.startTime) > 0 && bookTime.endTime.compareTo(a.endTime) <= 0).count();
         return (int) Math.max(startTimeCount, endTimeCount);
     }
 
@@ -30,7 +30,7 @@ public class Solution {
 
         public BookTime(LocalTime startTime, LocalTime endTime) {
             this.startTime = startTime;
-            this.endTime = endTime;
+            this.endTime = endTime.plusMinutes(10);
         }
 
         public static BookTime from(String[] time) {
