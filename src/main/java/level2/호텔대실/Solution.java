@@ -1,40 +1,35 @@
 package level2.호텔대실;
 
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
-
 public class Solution {
-    public int solution(String[][] book_time) {
-        List<BookTime> bookTimes = new ArrayList<>();
-        for (String[] time : book_time) {
-            bookTimes.add(BookTime.from(time));
-        }
+    private static final int MAX_TIME = 1_450;
+    private static final int HOUR = 60;
+    private static final int CLEAN_TIME = 10;
+
+    public static int solution(String[][] book_time) {
         int answer = 0;
 
-        for (BookTime bookTime: bookTimes) {
-            answer = Math.max(answer, getMax(bookTimes, bookTime));
+        int[] rooms = new int[MAX_TIME];
+
+        for (String[] time : book_time) {
+            String inTime = time[0];
+            String outTime = time[1];
+
+            rooms[calTime(inTime)] += 1;
+            rooms[calTime(outTime) + CLEAN_TIME] += -1;
         }
+        
+        for (int i = 1; i < MAX_TIME; i++) {
+            rooms[i] += rooms[i - 1];
+            answer = Math.max(answer, rooms[i]);
+        }
+
         return answer;
     }
 
-    private static int getMax(List<BookTime> bookTimes, BookTime bookTime) {
-        long startTimeCount = bookTimes.stream().filter(a -> bookTime.startTime.compareTo(a.startTime) >= 0 &&  bookTime.startTime.compareTo(a.endTime) < 0).count();
-        long endTimeCount = bookTimes.stream().filter(a -> bookTime.endTime.compareTo(a.startTime) > 0 && bookTime.endTime.compareTo(a.endTime) <= 0).count();
-        return (int) Math.max(startTimeCount, endTimeCount);
-    }
-
-    private static class BookTime {
-        LocalTime startTime;
-        LocalTime endTime;
-
-        public BookTime(LocalTime startTime, LocalTime endTime) {
-            this.startTime = startTime;
-            this.endTime = endTime.plusMinutes(10);
-        }
-
-        public static BookTime from(String[] time) {
-            return new BookTime(LocalTime.parse(time[0]), LocalTime.parse(time[1]));
-        }
+    private static int calTime(String time) {
+        String[] split = time.split(":");
+        String hour = split[0];
+        String minute = split[1];
+        return ((Integer.parseInt(hour) * HOUR) + Integer.parseInt(minute));
     }
 }
