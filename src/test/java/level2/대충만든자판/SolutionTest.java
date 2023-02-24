@@ -33,7 +33,7 @@ class SolutionTest {
     @DisplayName("1번 키부터 차례대로 할당된 문자들이 순서대로 담긴 문자열배열 keymap과 입력하려는 문자열들이 담긴 문자열 배열 targets가 주어질 때, 각 문자열을 작성하기 위해 키를 최소 몇 번씩 눌러야 하는지 순서대로 배열 테스트")
     @ParameterizedTest
     @MethodSource("args")
-    void 대충_만든_자판(String[] keymap, String[] targets, int result) {
+    void 대충_만든_자판(String[] keymap, String[] targets, int[] result) {
         Solution solution = new Solution();
         assertThat(solution.solution(keymap, targets)).isEqualTo(result);
     }
