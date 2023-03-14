@@ -1,0 +1,6 @@
+select concat('/home/grep/src/',f.boardid,'/',f.fileid, f.filename, f.fileext) as filepath
+from usedgoodsfile f
+join usedgoodsboard b
+on f.boardid = b.boardid
+where b.views = (select max(b1.views) from usedgoodsboard b1 )
+order by f.fileid desc
