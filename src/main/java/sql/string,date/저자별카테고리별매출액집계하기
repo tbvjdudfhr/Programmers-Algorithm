@@ -1,0 +1,6 @@
+SELECT C.author_id,C.author_name,B.category,sum(A.sales*B.price) as sales from book_sales as A inner join book as B
+    on A.book_id = B.book_id
+    inner join author as C on B.author_id = C.author_id
+    where date_format(A.sales_Date,"%Y-%m") = "2022-01"
+    group by C.author_name,B.category
+    order by C.author_id,B.category desc
